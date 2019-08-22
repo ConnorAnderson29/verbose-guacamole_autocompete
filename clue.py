@@ -20,13 +20,13 @@ def clue(suspects, weapons, rooms, clues):
     print('with the '+r)
 
 clues = []
-for line in fileinput.input:
-    if (line.startswith('Suspects:'):
+for line in fileinput.input():
+    if (line.startswith('Suspects:')):
         suspects = line[9::].split(',')
-    else if (line.startswith('Weapons:'):
+    elif (line.startswith('Weapons:')):
         weapons = line[8::].split(',')
-    else if (line.startswith('Rooms:'):
+    elif (line.startswith('Rooms:')):
         rooms = line[6::].split(',')
-    else if (line != "clues:"):
+    elif (line != "clues:"):
         clues.append(line)
 clue(suspects, weapons, rooms, clues)
